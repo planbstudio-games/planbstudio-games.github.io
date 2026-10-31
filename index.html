@@ -6,8 +6,8 @@
 <style>
 /* Layout: the Plan B hallway at night. The logo door sits lit in the hero; each game is an app icon on a door-panel card down the hall. Single dark look, by brand choice. */
 :root{
-  --hallway:#14181F; --floor:#0B0E13; --door:#2E5E5A; --door-deep:#244B48;
-  --brass:#D4A64A; --lamp:#F2B66B; --plaster:#E9E4DA; --dim:#A9A69D; --edge:#2A313C;
+  --hallway:#05102A; --floor:#030A1C; --door:#0F1E45; --door-deep:#1A2D63;
+  --brass:#F7B32B; --lamp:#FFC94A; --plaster:#F2F4F8; --dim:#A3ADC2; --edge:#1B2A4D;
   --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
@@ -23,10 +23,7 @@ body{background:var(--hallway);color:var(--plaster);font-family:var(--body);font
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36px;background:var(--floor)}
 .glow{position:absolute;bottom:0;left:50%;width:min(640px,90%);height:36px;transform:translateX(-50%);background:var(--lamp);opacity:.14;z-index:1}
 .doorwrap{flex:none;position:relative;z-index:2}
-.doorwrap svg{width:180px;height:auto;display:block}
-.knob{transform-origin:192px 200px}
-.doorwrap:hover .knob{animation:knock .5s ease 2}
-@keyframes knock{50%{transform:scale(1.25)}}
+.doorwrap img{width:clamp(200px,30vw,300px);height:auto;max-width:100%;display:block}
 .brand{flex:1 1 340px;min-width:0;z-index:2;display:flex;flex-direction:column;gap:14px}
 .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
 h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(56px,10vw,112px);line-height:.92;letter-spacing:-.02em}
@@ -87,23 +84,12 @@ footer a{color:var(--brass)}
   <div class="glow" aria-hidden="true"></div>
   <div class="inner">
     <div class="doorwrap">
-      <svg viewBox="0 0 240 340" role="img" aria-label="Plan B Studio logo: a teal door with a brass letter B and lamplight under it">
-        <rect x="20" y="20" width="200" height="316" rx="6" fill="#0B0E13" stroke="#2A313C" stroke-width="2"/>
-        <rect x="32" y="32" width="176" height="304" rx="2" fill="#2E5E5A"/>
-        <rect x="56" y="214" width="128" height="94" rx="2" fill="none" stroke="#244B48" stroke-width="3"/>
-        <rect x="76" y="56" width="88" height="108" rx="8" fill="#D4A64A"/>
-        <rect x="82" y="62" width="76" height="96" rx="5" fill="none" stroke="#14181F" stroke-width="2" opacity=".35"/>
-        <text x="120" y="140" text-anchor="middle" font-size="86" font-weight="800" font-family="Bricolage Grotesque, Arial Black, sans-serif" fill="#14181F">B</text>
-        <circle cx="120" cy="190" r="7" fill="#D4A64A"/><circle cx="120" cy="190" r="3" fill="#14181F"/>
-        <circle class="knob" cx="192" cy="200" r="8" fill="#D4A64A"/>
-        <rect x="32" y="332" width="176" height="4" fill="#F2B66B"/>
-      </svg>
+      <img src="planb-logo.png" width="512" height="512" alt="Plan B Studio logo">
     </div>
     <div class="brand">
-      <div class="eyebrow">Game studio · Apartment B</div>
-      <h1>Plan B<small>Studio</small></h1>
-      <div class="tag">Knock twice.</div>
-      <p>Every Plan B game, behind one door. Free to play on Android, made in Godot.</p>
+      <div class="eyebrow">Plan B Studio · Indie mobile games</div>
+      <h1>Every game.<small>One place.</small></h1>
+      <p>All of our games in one spot. Free to play on Android, made in Godot.</p>
     </div>
   </div>
 </section>
@@ -166,7 +152,7 @@ footer a{color:var(--brass)}
 <footer class="gutter">
   <div class="inner">
     <div class="mini">
-      <svg viewBox="0 0 240 340" width="22" height="31" aria-hidden="true"><rect x="20" y="20" width="200" height="316" rx="6" fill="#0B0E13"/><rect x="32" y="32" width="176" height="304" rx="2" fill="#2E5E5A"/><rect x="76" y="56" width="88" height="108" rx="8" fill="#D4A64A"/><rect x="32" y="332" width="176" height="4" fill="#F2B66B"/></svg>
+      <img src="planb-logo.png" width="40" height="40" alt="" style="border-radius:8px">
       Plan B <span>Studio</span>
     </div>
     <div>© 2026 Plan B Studio · <a href="#privacy">Privacy Policy</a></div>
@@ -198,7 +184,7 @@ const GAMES = [
   {id:"wordplay", name:"Word Play", aka:"formerly Word Drop", genre:"Puzzle", bg:"#7A3E6E", url:"", icon:"",
    blurb:"Letters fall onto the board. Arrange them into the level's goal words before the stack tops out.", tags:["Words","Falling blocks"],
    art:'<g font-family="Bricolage Grotesque,Arial Black,sans-serif" font-weight="800" font-size="18" text-anchor="middle"><rect x="14" y="62" width="22" height="22" rx="3" fill="#D4A64A"/><text x="25" y="80" fill="#14181F">W</text><rect x="39" y="62" width="22" height="22" rx="3" fill="#D4A64A"/><text x="50" y="80" fill="#14181F">O</text><rect x="64" y="62" width="22" height="22" rx="3" fill="#D4A64A"/><text x="75" y="80" fill="#14181F">R</text><rect x="46" y="18" width="22" height="22" rx="3" fill="#E9E4DA"/><text x="57" y="36" fill="#7A3E6E">D</text></g>'},
-  {id:"notedrop", name:"Note Drop", genre:"Music", bg:"#245C8A", url:"", icon:"",
+  {id:"notedrop", name:"Note Drop", genre:"Music", bg:"#245C8A", url:"https://play.google.com/store/apps/details?id=com.planbstudio.notedrop", icon:"",
    blurb:"Colored notes fall toward an unlabeled keyboard. Tap the right key and learn piano as you play.", tags:["Rhythm","Learn piano"],
    art:'<rect x="12" y="62" width="76" height="28" fill="#fff"/><g stroke="#245C8A" stroke-width="2"><path d="M27 62 v28 M42 62 v28 M57 62 v28 M72 62 v28"/></g><rect x="23" y="62" width="8" height="16" fill="#14181F"/><rect x="38" y="62" width="8" height="16" fill="#14181F"/><rect x="68" y="62" width="8" height="16" fill="#14181F"/><circle cx="34" cy="22" r="7" fill="#E05757"/><circle cx="64" cy="38" r="7" fill="#F2B66B"/><circle cx="50" cy="12" r="6" fill="#8FD3C9"/>'}
 ];
