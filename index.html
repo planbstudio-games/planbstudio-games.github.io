@@ -110,7 +110,7 @@ footer a{color:var(--brass)}
     <h2>Privacy Policy</h2>
     <p class="meta">Effective October 30, 2026 · Applies to all Plan B Studio games and this website</p>
 
-    <p>Plan B Studio ("we", "us") makes free, ad-supported mobile games: BombBoi, Ball Fusion, Free Throwaway, Flip n' Fit, Tilt Death, Pizza Dash, Word Play, Note Drop, Bed Wars, Party Night. This policy explains what information our games and website collect, why, and the choices you have.</p>
+    <p>Plan B Studio ("we", "us") makes free, ad-supported mobile games: Little Paws, Paper Escape, Ball Fusion, Bed Wars, BombBoi, Flip n' Fit, Free Throwaway, Note Drop, Party Night, Pizza Dash, Tilt Death and Word Play. This policy explains what information our games and website collect, why, and the choices you have.</p>
 
     <h3>What we collect ourselves</h3>
     <p>Nothing that identifies you. Our games have no accounts, no sign-in and no in-app purchases. We don't ask for your name, email, phone number, contacts, photos or location.</p>
@@ -133,7 +133,7 @@ footer a{color:var(--brass)}
     </ul>
 
     <h3>Device permissions</h3>
-    <p>Some games use your phone's motion sensors to control gameplay (for example, tilting the phone in Tilt Death). Sensor readings are used on your device only, in real time, and are not stored or sent anywhere. The games may use internet access so ads can load.</p>
+    <p>Some games use your phone's motion sensors to control gameplay (for example, tilting the phone in Tilt Death or Paper Escape). Sensor readings are used on your device only, in real time, and are not stored or sent anywhere. The games may use internet access so ads can load.</p>
 
     <h3>Local multiplayer</h3>
     <p>Our multiplayer games connect phones that are on the same Wi-Fi network or hotspot. To find each other, the games share a session name and the information needed to connect, such as each device's local network address, only with other devices on that network. Your phone may ask for permission to find devices on your local network. Gameplay data passes directly between the players' devices and is not sent to us or stored on any server. Player names you type in are shown only to the other players in that session.</p>
@@ -169,7 +169,13 @@ footer a{color:var(--brass)}
 /* To use a real app icon, set `icon` to its image (a data: URI or a published file path).
    To activate a store button, set `url` to the game's Google Play link. */
 const GAMES = [
-  {id:"bombboi", name:"BombBoi", genre:"Platformer", bg:"#B9502F", url:"", icon:"",
+  {id:"littlepaws", name:"Little Paws", genre:"Puzzle", bg:"#E58FA6", url:"https://play.google.com/store/apps/details?id=com.planbstudio.littlepaws", icon:"",
+   blurb:"Match cute animal faces in this endless match-3 adventure. The map keeps going and your progress is saved.", tags:["Match-3","Endless map"],
+   art:'<circle cx="30" cy="30" r="14" fill="#FFFFFF"/><circle cx="70" cy="30" r="14" fill="#F2B66B"/><circle cx="30" cy="70" r="14" fill="#F2B66B"/><circle cx="70" cy="70" r="14" fill="#FFFFFF"/><g fill="#14181F"><circle cx="26" cy="29" r="2"/><circle cx="34" cy="29" r="2"/><circle cx="66" cy="29" r="2"/><circle cx="74" cy="29" r="2"/><circle cx="26" cy="69" r="2"/><circle cx="34" cy="69" r="2"/><circle cx="66" cy="69" r="2"/><circle cx="74" cy="69" r="2"/></g><path d="M22 18 l2 -10 l6 8 M38 18 l-2 -10 l-6 8" fill="#FFFFFF"/><path d="M58 20 l2 -10 l6 6 M82 20 l-2 -10 l-6 6" fill="#F2B66B"/>'},
+  {id:"paperescape", name:"Paper Escape", aka:"formerly Sketch Escape", genre:"Runner", bg:"#5C6B7A", url:"https://play.google.com/store/apps/details?id=com.planbstudio.paperescape", icon:"",
+   blurb:"You're a paper doodle who escaped the sketchbook, and a giant eraser wants you back. Tilt to run, jump and slide.", tags:["Tilt controls","Endless runner"],
+   art:'<rect x="8" y="10" width="84" height="80" rx="3" fill="#F7F3EA"/><g stroke="#C9D3DE" stroke-width="1.5"><path d="M8 30 h84 M8 46 h84 M8 62 h84 M8 78 h84"/></g><g stroke="#14181F" stroke-width="3" fill="none" stroke-linecap="round"><circle cx="62" cy="34" r="6"/><path d="M62 40 v16 M62 46 l8 -4 M62 46 l-8 4 M62 56 l7 12 M62 56 l-8 10"/></g><rect x="14" y="52" width="24" height="16" rx="3" fill="#E58FA6" transform="rotate(-10 26 60)"/><rect x="14" y="62" width="24" height="7" rx="2" fill="#3D6FB0" transform="rotate(-10 26 60)"/>'},
+  {id:"bombboi", name:"BombBoi", genre:"Platformer", bg:"#B9502F", url:"https://play.google.com/store/apps/details?id=com.planbstudio.bombboi", icon:"",
    blurb:"Grab the coins and reach the flag before your fuse runs out. Multiple worlds, boss levels, and a friend can join for co-op.", tags:["Co-op","Boss levels"],
    art:'<circle cx="50" cy="56" r="28" fill="#14181F"/><rect x="45" y="20" width="10" height="12" rx="2" fill="#14181F"/><path d="M50 20 q6 -10 14 -6" stroke="#F2B66B" stroke-width="4" fill="none"/><circle cx="66" cy="13" r="5" fill="#FFD84D"/><circle cx="41" cy="52" r="4" fill="#fff"/><circle cx="59" cy="52" r="4" fill="#fff"/>'},
   {id:"ballfusion", name:"Ball Fusion", aka:"formerly Ball Fall", genre:"Puzzle", bg:"#1D3E5C", url:"https://play.google.com/store/apps/details?id=com.planbstudio.ballfusion", icon:"",
@@ -193,12 +199,12 @@ const GAMES = [
   {id:"notedrop", name:"Note Drop", genre:"Music", bg:"#245C8A", url:"https://play.google.com/store/apps/details?id=com.planbstudio.notedrop", icon:"",
    blurb:"Colored notes fall toward an unlabeled keyboard. Tap the right key and learn piano as you play.", tags:["Rhythm","Learn piano"],
    art:'<rect x="12" y="62" width="76" height="28" fill="#fff"/><g stroke="#245C8A" stroke-width="2"><path d="M27 62 v28 M42 62 v28 M57 62 v28 M72 62 v28"/></g><rect x="23" y="62" width="8" height="16" fill="#14181F"/><rect x="38" y="62" width="8" height="16" fill="#14181F"/><rect x="68" y="62" width="8" height="16" fill="#14181F"/><circle cx="34" cy="22" r="7" fill="#E05757"/><circle cx="64" cy="38" r="7" fill="#F2B66B"/><circle cx="50" cy="12" r="6" fill="#8FD3C9"/>'},
-  {id:"bedwars", name:"Bed Wars", genre:"Multiplayer", bg:"#7B2430", url:"", icon:"",
+  {id:"bedwars", name:"Bed Wars", genre:"Multiplayer", bg:"#7B2430", url:"https://play.google.com/store/apps/details?id=com.planbstudio.bedwars", icon:"",
    blurb:"Up to 6 players on the same Wi-Fi. Defend your bed, break theirs, and be the last one standing.", tags:["Up to 6 players","First person"],
    art:'<rect x="14" y="34" width="8" height="44" rx="2" fill="#F2F4F8"/><rect x="14" y="56" width="72" height="16" rx="3" fill="#F2F4F8"/><rect x="40" y="46" width="46" height="14" rx="3" fill="#E05757"/><rect x="24" y="46" width="16" height="10" rx="4" fill="#FFFFFF"/><rect x="80" y="60" width="6" height="18" rx="2" fill="#F2F4F8"/><path d="M62 14 l14 14 M60 28 l6 -6" stroke="#FFC94A" stroke-width="5" stroke-linecap="round"/>'},
-  {id:"partynight", name:"Party Night", aka:"working title", genre:"Multiplayer", bg:"#8A3B9E", url:"", icon:"",
-   blurb:"A big collection of quick party games. Filter by how many are playing, join over Wi-Fi, or play solo against bots.", tags:["Party games","Solo with bots"],
-   art:'<rect x="22" y="36" width="40" height="40" rx="8" fill="#F2F4F8" transform="rotate(-12 42 56)"/><g fill="#8A3B9E"><circle cx="32" cy="50" r="4"/><circle cx="44" cy="56" r="4"/><circle cx="54" cy="62" r="4"/></g><circle cx="74" cy="22" r="4" fill="#FFC94A"/><circle cx="82" cy="40" r="3" fill="#8FD3C9"/><rect x="62" y="30" width="6" height="6" fill="#E07A57" transform="rotate(30 65 33)"/><circle cx="20" cy="20" r="3" fill="#FFC94A"/>'}
+  {id:"partynight", name:"Party Night", genre:"Multiplayer", bg:"#8A3B9E", url:"https://play.google.com/store/apps/details?id=com.planbstudio.partynight", icon:"",
+   blurb:"25 quick party games in one app. Filter by how many are playing, join friends over Wi-Fi, or play solo against bots.", tags:["25 games","Solo with bots"],
+   art:'<rect x="22" y="36" width="40" height="40" rx="8" fill="#F2F4F8" transform="rotate(-12 42 56)"/><g fill="#8A3B9E"><circle cx="32" cy="50" r="4"/><circle cx="44" cy="56" r="4"/><circle cx="54" cy="62" r="4"/></g><circle cx="74" cy="22" r="4" fill="#FFC94A"/><circle cx="82" cy="40" r="3" fill="#8FD3C9"/><rect x="62" y="30" width="6" height="6" fill="#E07A57" transform="rotate(30 65 33)"/><circle cx="20" cy="20" r="3" fill="#FFC94A"/>'},
 ];
 
 const grid=document.getElementById('grid'), filters=document.getElementById('filters'), count=document.getElementById('count');
@@ -216,7 +222,7 @@ function render(){
       <div class="top">
         <div class="icon" style="background:${g.bg}">${icon}</div>
         <div class="titles">
-          <div class="unit">Apt B-${String(n).padStart(2,'0')} · ${esc(g.genre)}</div>
+          <div class="unit">${esc(g.genre)}</div>
           <h3>${esc(g.name)}</h3>
           ${g.aka?`<div class="aka">${esc(g.aka)}</div>`:''}
         </div>
