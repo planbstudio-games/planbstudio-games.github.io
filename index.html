@@ -60,6 +60,7 @@ main{padding-block:40px 64px}
 .card p{margin:0;color:#DCE4E0;font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
 .t{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--door-deep);color:#C7D3CF}
+.btns{display:flex;flex-direction:column;gap:8px}
 .btn{display:flex;justify-content:center;align-items:center;font:700 15px var(--body);padding:12px 14px;border-radius:4px;text-decoration:none;min-height:44px}
 .btn.live{background:var(--brass);color:var(--hallway)}
 .btn.live:hover{background:var(--lamp)}
@@ -92,7 +93,7 @@ footer a{color:var(--brass)}
     <div class="brand">
       <div class="eyebrow">Plan B Studio · Indie mobile games</div>
       <h1>Every game.<small>One place.</small></h1>
-      <p>All of our games in one spot. Free to play on Android.</p>
+      <p>All of our games in one spot. Free to play on Android, with iPhone versions coming soon.</p>
     </div>
   </div>
 </section>
@@ -129,6 +130,7 @@ footer a{color:var(--brass)}
     <h3>Your ad choices</h3>
     <ul>
       <li><strong>Personalized ads:</strong> On Android, open Settings › Google › Ads (or Settings › Privacy › Ads) to delete or reset your advertising ID. Once deleted, apps can't use it for personalized ads.</li>
+      <li><strong>On iPhone and iPad:</strong> Open Settings › Privacy &amp; Security › Tracking to choose whether apps can ask to track you. If you don't allow tracking, ads in our games won't be personalized using your device's advertising identifier.</li>
       <li><strong>Consent:</strong> If you're in a region that requires consent, such as the EEA, UK or Switzerland, the game will ask before personalized ads are shown, and you can change your choice later from the game's settings.</li>
     </ul>
 
@@ -167,7 +169,7 @@ footer a{color:var(--brass)}
 
 <script>
 /* To use a real app icon, set `icon` to its image (a data: URI or a published file path).
-   To activate a store button, set `url` to the game's Google Play link. */
+   To activate a store button, set `url` to the game's Google Play link and `ios` to its App Store link. */
 const GAMES = [
   {id:"littlepaws", name:"Little Paws", genre:"Puzzle", bg:"#E58FA6", url:"", icon:"",
    blurb:"Match cute animal faces in this endless match-3 adventure. The map keeps going and your progress is saved.", tags:["Match-3","Endless map"],
@@ -217,7 +219,9 @@ function render(){
   grid.innerHTML=list.map(g=>{
     const n=GAMES.indexOf(g)+1;
     const icon=g.icon?`<img src="${esc(g.icon)}" alt="${esc(g.name)} app icon">`:`<svg viewBox="0 0 100 100" role="img" aria-label="${esc(g.name)} icon">${g.art}</svg>`;
-    const btn=g.url?`<a class="btn live" href="${esc(g.url)}" target="_blank" rel="noopener">Get it on Google Play</a>`:`<span class="btn soon">Coming soon to Google Play</span>`;
+    const play=g.url?`<a class="btn live" href="${esc(g.url)}" target="_blank" rel="noopener">Get it on Google Play</a>`:`<span class="btn soon">Google Play · Coming soon</span>`;
+    const apple=g.ios?`<a class="btn live" href="${esc(g.ios)}" target="_blank" rel="noopener">Download on the App Store</a>`:`<span class="btn soon">App Store · Coming soon</span>`;
+    const btn=`<div class="btns">${play}${apple}</div>`;
     return `<article class="card" id="${g.id}">
       <div class="top">
         <div class="icon" style="background:${g.bg}">${icon}</div>
