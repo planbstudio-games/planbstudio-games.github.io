@@ -1,6 +1,11 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plan B Studio Games</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,6 +21,8 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
 body{background:var(--hallway);color:var(--plaster);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
 .gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .inner{max-width:1120px;margin:0 auto}
@@ -84,6 +91,8 @@ footer a{color:var(--brass)}
 @media (prefers-reduced-motion:reduce){.card,.card::after{transition:none}.card:hover{transform:none}.doorwrap:hover .knob{animation:none}}
 </style>
 
+</head>
+<body>
 <section class="hero gutter">
   <div class="glow" aria-hidden="true"></div>
   <div class="inner">
@@ -143,17 +152,38 @@ footer a{color:var(--brass)}
     <h3>This website</h3>
     <p>This site has no sign-ups, forms or tracking. It remembers which game category you last filtered by, saved only in your own browser. Clearing your browser data removes it.</p>
 
+    <h3>Problem reports</h3>
+    <p>If you send us a problem report through our Google Form, we receive what you type in, such as the game, your phone model and a description of the issue, plus your email only if you choose to give it. We use it only to fix problems and reply to you. Google stores form responses under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. Ask us any time and we'll delete your report.</p>
+
     <h3>Children</h3>
     <p>Our games are made for a general audience and are not directed at children under 13. We don't knowingly collect personal information from children. If you believe a child has provided personal information through one of our games, contact us and we will help remove it.</p>
 
     <h3>Security and retention</h3>
-    <p>Because we don't collect or store your personal information on our own servers, there is nothing for us to retain or lose. Data collected by Google for ads is kept under Google's own retention policies.</p>
+    <p>Apart from problem reports you choose to send, we don't collect or store your personal information. Data collected by Google for ads is kept under Google's own retention policies.</p>
 
     <h3>Changes to this policy</h3>
     <p>If we change this policy, we'll update it on this page and change the effective date above.</p>
 
     <h3>Contact us</h3>
     <p>Questions about this policy or your data? Email Plan B Studio at <span class="fill">[your contact email]</span>.</p>
+  </article>
+  <article class="policy" id="support-view" hidden>
+    <a class="back" href="#">← Back to the games</a>
+    <h2>Report a problem</h2>
+    <p class="meta">Found a bug, a crash, or an ad that won't close? Tell us and we'll look into it.</p>
+    <p>The report form takes about a minute. You don't need an account. Pick the game, tell us what phone you're on, and describe what happened.</p>
+    <div class="btns" style="max-width:360px;margin:12px 0 8px">
+      <a class="btn live" id="report-btn" href="#support" target="_blank" rel="noopener">Open the report form</a>
+    </div>
+    <h3>What helps us fix it fastest</h3>
+    <ul>
+      <li>The game's name and the level or screen you were on</li>
+      <li>Your phone model and whether it's Android or iPhone</li>
+      <li>What you expected, and what happened instead</li>
+      <li>Whether it happens every time or only once in a while</li>
+      <li>A screenshot, if you can</li>
+    </ul>
+    <p>Leaving your email is optional. Add it only if you'd like us to reply. See our <a href="#privacy">Privacy Policy</a> for how we handle what you send.</p>
   </article>
 </main>
 
@@ -163,7 +193,7 @@ footer a{color:var(--brass)}
       <img src="planb-logo.png" width="40" height="40" alt="" style="border-radius:8px">
       Plan B <span>Studio</span>
     </div>
-    <div>© 2026 Plan B Studio · <a href="#privacy">Privacy Policy</a></div>
+    <div>© 2026 Plan B Studio · <a href="#privacy">Privacy Policy</a> · <a href="#support">Report a problem</a></div>
   </div>
 </footer>
 
@@ -245,14 +275,22 @@ try{const s=localStorage.getItem('pb-filter');if(s&&genres.includes(s))current=s
 render();
 
 const gamesView=document.getElementById('games-view'), privacyView=document.getElementById('privacy-view');
+/* Paste the Google Form link between the quotes below. */
+const REPORT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc3hTtHst67fI3gvy8oL6OZidQ0C5L-vBZ8jRVLxMTmwk6V8g/viewform";
+const supportView=document.getElementById('support-view'), reportBtn=document.getElementById('report-btn');
+if(REPORT_FORM_URL){reportBtn.href=REPORT_FORM_URL;}
+else{reportBtn.removeAttribute('href');reportBtn.removeAttribute('target');reportBtn.className='btn soon';reportBtn.textContent='Report form coming soon';}
 function route(){
-  const p=location.hash==='#privacy';
-  privacyView.hidden=!p; gamesView.hidden=p;
-  document.title=p?'Privacy Policy · Plan B Studio':'Plan B Studio Games';
+  const h=location.hash;
+  const p=h==='#privacy', s=h==='#support';
+  privacyView.hidden=!p; supportView.hidden=!s; gamesView.hidden=p||s;
+  document.title=p?'Privacy Policy · Plan B Studio':s?'Report a Problem · Plan B Studio':'Plan B Studio Games';
   if(p) privacyView.scrollIntoView({block:'start'});
+  if(s) supportView.scrollIntoView({block:'start'});
 }
 window.addEventListener('hashchange',route);
 route();
 </script>
 
-</body></html>
+</body>
+</html>
