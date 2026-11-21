@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Plan B Studio Games</title>
+<title>Mega B Studio Games</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
-/* Layout: the Plan B hallway at night. The logo door sits lit in the hero; each game is an app icon on a door-panel card down the hall. Single dark look, by brand choice. */
+/* Layout: the Mega B hallway at night. The logo door sits lit in the hero; each game is an app icon on a door-panel card down the hall. Single dark look, by brand choice. */
 :root{
-  --hallway:#05102A; --floor:#030A1C; --door:#0F1E45; --door-deep:#1A2D63;
+  --hallway:#010E2B; --floor:#030A1C; --door:#0F1E45; --door-deep:#1A2D63;
   --brass:#F7B32B; --lamp:#FFC94A; --plaster:#F2F4F8; --dim:#A3ADC2; --edge:#1B2A4D;
   --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -97,10 +97,10 @@ footer a{color:var(--brass)}
   <div class="glow" aria-hidden="true"></div>
   <div class="inner">
     <div class="doorwrap">
-      <img src="planb-logo.png" width="512" height="512" alt="Plan B Studio logo">
+      <img src="megab-logo.png" width="512" height="512" alt="Mega B Studio logo">
     </div>
     <div class="brand">
-      <div class="eyebrow">Plan B Studio · Indie mobile games</div>
+      <div class="eyebrow">Mega B Studio · Indie mobile games</div>
       <h1>Every game.<small>One place.</small></h1>
       <p>All of our games in one spot. Free to play on Android, with iPhone versions coming soon.</p>
     </div>
@@ -118,9 +118,9 @@ footer a{color:var(--brass)}
   <article class="policy" id="privacy-view" hidden>
     <a class="back" href="#">← Back to the games</a>
     <h2>Privacy Policy</h2>
-    <p class="meta">Effective October 30, 2026 · Applies to all Plan B Studio games and this website</p>
+    <p class="meta">Effective October 30, 2026 · Applies to all Mega B Studio games and this website</p>
 
-    <p>Plan B Studio ("we", "us") makes free, ad-supported mobile games: Little Paws, Paper Escape, Ball Fusion, Bed Wars, BombBoi, Flip n' Fit, Free Throwaway, Note Drop, Party Night, Pizza Dash, Tilt Death and Word Play. This policy explains what information our games and website collect, why, and the choices you have.</p>
+    <p>Mega B Studio ("we", "us") makes free, ad-supported mobile games: Little Paws, Paper Escape, Ball Fusion, Bed Wars, BombBoi, Flip n' Fit, Free Throwaway, Note Drop, Party Night, Pizza Dash, Tilt Death and Word Play. This policy explains what information our games and website collect, why, and the choices you have.</p>
 
     <h3>What we collect ourselves</h3>
     <p>Nothing that identifies you. Our games have no accounts, no sign-in and no in-app purchases. We don't ask for your name, email, phone number, contacts, photos or location.</p>
@@ -165,7 +165,7 @@ footer a{color:var(--brass)}
     <p>If we change this policy, we'll update it on this page and change the effective date above.</p>
 
     <h3>Contact us</h3>
-    <p>Questions about this policy or your data? Email Plan B Studio at <span class="fill">[your contact email]</span>.</p>
+    <p>Questions about this policy or your data? Email Mega B Studio at <span class="fill">[your contact email]</span>.</p>
   </article>
   <article class="policy" id="support-view" hidden>
     <a class="back" href="#">← Back to the games</a>
@@ -190,10 +190,10 @@ footer a{color:var(--brass)}
 <footer class="gutter">
   <div class="inner">
     <div class="mini">
-      <img src="planb-logo.png" width="40" height="40" alt="" style="border-radius:8px">
-      Plan B <span>Studio</span>
+      <img src="megab-logo.png" width="40" height="40" alt="" style="border-radius:8px">
+      Mega B <span>Studio</span>
     </div>
-    <div>© 2026 Plan B Studio · <a href="#privacy">Privacy Policy</a> · <a href="#support">Report a problem</a></div>
+    <div>© 2026 Mega B Studio · <a href="#privacy">Privacy Policy</a> · <a href="#support">Report a problem</a></div>
   </div>
 </footer>
 
@@ -284,7 +284,7 @@ function route(){
   const h=location.hash;
   const p=h==='#privacy', s=h==='#support';
   privacyView.hidden=!p; supportView.hidden=!s; gamesView.hidden=p||s;
-  document.title=p?'Privacy Policy · Plan B Studio':s?'Report a Problem · Plan B Studio':'Plan B Studio Games';
+  document.title=p?'Privacy Policy · Mega B Studio':s?'Report a Problem · Mega B Studio':'Mega B Studio Games';
   if(p) privacyView.scrollIntoView({block:'start'});
   if(s) supportView.scrollIntoView({block:'start'});
 }
